@@ -1,0 +1,25 @@
+{
+  "name": "nolimits-roller-coaster-sim-script-language",
+  "displayName": "NoLimits Roller Coaster Sim Script Language",
+  "description": "Syntax highlighting for NoLimits Roller Coaster Simulation Scripting Language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "nlvm",
+      "aliases": ["NoLimits Roller Coaster Simulation Scripting Language", "nlvm"],
+      "extensions": [".nlvm"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "nlvm",
+      "scopeName": "source.nlvm",
+      "path": "./syntaxes/nlvm.tmLanguage.json"
+    }]
+  }
+}
