@@ -10,16 +10,28 @@
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
-      "id": "nlvm",
-      "aliases": ["NoLimits Roller Coaster Simulation Scripting Language", "nlvm"],
-      "extensions": [".nlvm"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "nlvm",
-      "scopeName": "source.nlvm",
-      "path": "./syntaxes/nlvm.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "nlvm",
+        "aliases": [
+          "NoLimits Roller Coaster Simulation Scripting Language",
+          "nlvm"
+        ],
+        "extensions": [
+          ".nlvm"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "nlvm",
+        "scopeName": "source.nlvm",
+        "path": "./syntaxes/nlvm.tmLanguage.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "js-yaml": "^4.1.0"
   }
 }

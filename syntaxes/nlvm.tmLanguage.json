@@ -1,32 +1,96 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "NoLimits Roller Coaster Simulation Scripting Language",
-	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
-	],
-	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.nlvm",
-				"match": "\\b(if|while|for|return)\\b"
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "NoLimits Roller Coaster Simulation Scripting Language",
+    "patterns": [
+        {
+            "captures": {
+                "1": {
+                    "name": "keyword.other.package.nlvm"
+                },
+                "2": {
+                    "name": "storage.modifier.package.nlvm"
+                },
+                "3": {
+                    "name": "punctuation.terminator.nlvm"
+                }
+            },
+            "match": "^\\s*(package)\\b(?:\\s*([^ ;$]+)\\s*(;)?)?",
+            "name": "meta.package.nlvm"
+        },
+        {
+            "begin": "(import)\\b\\s*",
+            "beginCaptures": {
+                "1": {
+                    "name": "keyword.other.import.nlvm"
+                }
+            },
+            "captures": {
+                "1": {
+                    "name": "keyword.other.import.nlvm"
+                },
+                "2": {
+                    "name": "storage.modifier.import.nlvm"
+                },
+                "3": {
+                    "name": "punctuation.terminator.nlvm"
+                }
+            },
+            "contentName": "storage.modifier.import.nlvm",
+            "end": "\\s*(?:$|(;))",
+            "endCaptures": {
+                "1": {
+                    "name": "punctuation.terminator.nlvm"
+                }
+            },
+            "name": "meta.import.nlvm",
+            "patterns": [
+                {
+                    "match": "\\.",
+                    "name": "punctuation.separator.nlvm"
+                },
+                {
+                    "match": "\\s",
+                    "name": "invalid.illegal.character_not_allowed_here.nlvm"
+                }
+            ]
+        },
+        {
+            "include": "#code"
+        },
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#strings"
+        }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [{
+				"name": "comment.line.double-slash.nlvm",
+				"match": "//.*"
 			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.nlvm",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.nlvm",
-					"match": "\\\\."
-				}
-			]
-		}
-	},
-	"scopeName": "source.nlvm"
+        },
+        "keywords": {
+            "patterns": [{
+                "name": "keyword.control.nlvm",
+                "match": "\\b(if|while|for|return)\\b"
+            }]
+        },
+        "strings": {
+            "name": "string.quoted.double.nlvm",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.nlvm",
+                    "match": "\\\\."
+                }
+            ]
+        }
+    },
+    "scopeName": "source.nlvm"
 }
